@@ -1,6 +1,5 @@
 <template>
     <v-app-bar color="indigo" app>
-        <v-app-bar-nav-icon color="white"></v-app-bar-nav-icon>
         <div>
             <v-img
                 id="brand-logo"

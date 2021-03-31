@@ -2,7 +2,7 @@
     <v-app id="app">
         <nav-bar />
         <v-main>
-            <v-container>
+            <v-container  class="main-container">
                 <router-view />
             </v-container>
         </v-main>
@@ -18,4 +18,8 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.main-container {
+    max-width: 1000px;
+}
+</style>
