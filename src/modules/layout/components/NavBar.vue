@@ -22,7 +22,11 @@
         >
         <v-btn class="nav-btn" text to="/about" color="white">About</v-btn>
         <v-spacer></v-spacer>
-        <v-btn id="cart-btn" color="white">
+        <v-btn class="func-btn" color="white" text>
+            Login
+            <v-icon>mdi-account</v-icon>
+        </v-btn>
+        <v-btn id="cart-btn" class="func-btn" color="white">
             <v-icon color="error darken-1">mdi-cart</v-icon>
             <v-badge
                 v-if="getItemCnt > 0"
@@ -73,6 +77,9 @@ export default {
     width: 90px;
 }
 
+.func-btn + .func-btn {
+    margin-left: 10px !important;
+}
 .nav-btn {
     height: 100% !important;
 }
