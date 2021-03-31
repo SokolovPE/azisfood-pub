@@ -11,10 +11,18 @@
                     :cols="goodCols"
                 >
                     <v-card height="320">
-                        <v-img :src="good.imgUrl" height="200" contain />
+                        <v-img
+                            :src="good.imgUrl"
+                            lazy-src="/brand/default-good.png"
+                            height="200"
+                            contain
+                        />
                         <v-card-title>{{ good.title }}</v-card-title>
                         <v-card-text>
-                            <v-btn outlined color="error darken-1"
+                            <v-btn
+                                outlined
+                                color="error darken-1"
+                                @click="addToCart(good)"
                                 >{{ good.price }}$
                                 <v-icon right>mdi-plus</v-icon>
                             </v-btn>
@@ -28,6 +36,7 @@
 
 <script>
 import CatalogService from '@/modules/common/services/catalog.service';
+import { mapGetters, mapActions } from 'vuex';
 export default {
     data() {
         return {
@@ -38,6 +47,12 @@ export default {
         goodCols() {
             return this.$vuetify.breakpoint.mobile ? 12 : 4;
         },
+    },
+    methods: {
+        ...mapActions('cart', ['addItem']),
+        addToCart(item) {
+            this.addItem(item);
+        }
     },
     created() {
         CatalogService.getCatalog().then((response) => {
